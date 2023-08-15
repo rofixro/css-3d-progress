@@ -10,7 +10,10 @@
   },
   "devDependencies": {
     "@nuxt/devtools": "latest",
-    "@types/node": "^18.17.3",
+    "@types/node": "^18.17.5",
     "nuxt": "^3.6.5"
+  },
+  "dependencies": {
+    "cesium": "^1.108.0"
   }
 }
