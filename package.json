@@ -11,9 +11,12 @@
   "devDependencies": {
     "@nuxt/devtools": "latest",
     "@types/node": "^18.17.5",
-    "nuxt": "^3.6.5"
+    "@unocss/nuxt": "^0.55.0",
+    "nuxt": "^3.6.5",
+    "vite-plugin-cesium": "^1.2.22"
   },
   "dependencies": {
+    "@unocss/reset": "^0.55.0",
     "cesium": "^1.108.0"
   }
 }
