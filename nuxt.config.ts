@@ -6,7 +6,18 @@ export default defineNuxtConfig({
   modules: ['@unocss/nuxt'],
   devtools: { enabled: true },
   unocss: { attributify: true },
-  vite: { plugins: [cesium()] },
   css: ['@unocss/reset/tailwind.css'],
-  runtimeConfig: { public: { cesiumToken: '' } }
+  runtimeConfig: { public: { cesiumToken: '' } },
+  vite: {
+    plugins: [cesium()],
+    server: {
+      proxy: {
+        '/api': {
+          changeOrigin: true,
+          target: 'https://sandcastle.cesium.com',
+          rewrite: (path) => path.replace(/^\/api/, ''),
+        },
+      }
+    }
+  },
 })
