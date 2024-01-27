@@ -1,22 +1,18 @@
 {
-  "name": "nuxt-app",
+  "name": "vue-3d-progress",
   "private": true,
+  "version": "0.0.0",
+  "type": "module",
   "scripts": {
-    "build": "nuxt build",
-    "dev": "nuxt dev",
-    "generate": "nuxt generate",
-    "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
-  },
-  "devDependencies": {
-    "@nuxt/devtools": "latest",
-    "@types/node": "^18.17.5",
-    "@unocss/nuxt": "^0.55.0",
-    "nuxt": "^3.6.5",
-    "vite-plugin-cesium": "^1.2.22"
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
   },
   "dependencies": {
-    "@unocss/reset": "^0.55.0",
-    "cesium": "^1.108.0"
+    "vue": "^3.4.15"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^4.6.2",
+    "vite": "^5.0.12"
   }
 }
