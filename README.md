@@ -1,6 +1,6 @@
-![logo](logo.jpg)
+![logo](logo.png)
 
-A 3D progress bar written using Web Components, supports Vue and React.
+A 3D progress bar component written using web Components, supports Vue, React and Svelte.
 
 ## Install
 
