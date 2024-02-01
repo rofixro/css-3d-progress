@@ -7,45 +7,114 @@ class Css3dProgress extends HTMLElement {
     super();
 
     const shadow = this.attachShadow({ mode: "open" });
+    const template = document.createElement("template");
 
-    const camera = document.createElement("div");
-    camera.classList.add("camera");
+    template.innerHTML = `
+    <style>
+        .camera {
+          width: 100%;
+          font-size: 1em;
+          perspective: 1000px;
+          perspective-origin: 50% 50%;
+          backface-visibility: visible;
+        }
 
-    const progress = document.createElement("div");
-    progress.classList.add("progress");
+        .progress {
+          height: 10em;
+          font-size: 1em;
+          position: relative;
+          transform-style: preserve-3d;
+          transition: all 0.3s ease-in-out;
+          transform: rotateX(60deg) rotateY(0deg);
+        }
 
-    const top = document.createElement("div");
-    top.classList.add("face", "top");
+        .face {
+          width: 100%;
+          height: 2em;
+          font-size: 2em;
+          position: relative;
+          background-color: rgba(254, 254, 254, 0.3);
+        }
 
-    const back = document.createElement("div");
-    back.classList.add("face", "back");
+        .left,
+        .right {
+          width: 2em;
+        }
 
-    const bottom = document.createElement("div");
-    bottom.classList.add("face", "bottom");
+        .left {
+          background-color: rgba(236, 0, 140, 0.6);
+          transform: rotateX(90deg) rotateY(-90deg) translateX(2em) translateY(1em) translateZ(1em);
+        }
 
-    const left = document.createElement("div");
-    left.classList.add("face", "left");
+        .right {
+          right: 0;
+          position: absolute;
+          transform: rotateX(90deg) rotateY(-90deg) translateX(4em) translateY(1em) translateZ(-1em);
+        }
 
-    const right = document.createElement("div");
-    right.classList.add("face", "right");
+        .back {
+          transform: rotateX(90deg) rotateY(0) translateX(0) translateY(1em) translateZ(-1em);
+        }
 
-    const front = document.createElement("div");
-    front.classList.add("face", "front");
+        .front {
+          transform: rotateX(90deg) rotateY(0) translateX(0) translateY(1em) translateZ(3em);
+        }
 
-    const linkElem = document.createElement("link");
-    linkElem.setAttribute("rel", "stylesheet");
-    linkElem.setAttribute("href", "./css-3d-progress.css");
+        .top {
+          transform: rotateX(0deg) rotateY(0) translateX(0em) translateY(4em) translateZ(2em);
+        }
 
-    [top, back, bottom, front].forEach((el) => {
-      const bar = document.createElement("div");
-      bar.classList.add("bar");
-      el.appendChild(bar);
-    });
+        .bottom {
+          box-shadow: 0 0.1em 0.6em rgba(0, 0, 0, 0.3), 0.6em -0.5em 3em rgba(0, 0, 0, 0.3), 1em -1em 8em #fefefe;
+        }
 
-    progress.append(top, back, bottom, left, right, front);
-    camera.appendChild(progress);
-    shadow.appendChild(linkElem);
-    shadow.appendChild(camera);
+        .bar {
+          height: 2em;
+          transition: all 0.3s ease-in-out;
+          background-color: rgba(236, 0, 140, 0.6);
+        }
+
+        .bottom .bar {
+          box-shadow: 0em 0em 2em rgba(236, 0, 140, 0.8);
+        }
+
+        .back .bar {
+          box-shadow: -0.5em -1.5em 4em rgba(236, 0, 140, 0.8);
+        }
+
+        @keyframes change {
+          0% {
+            background-position: 0 50%;
+          }
+          50% {
+            background-position: 100% 50%;
+          }
+          100% {
+            background-position: 0 50%;
+          }
+        }
+      </style>
+
+      <div class="camera">
+        <div class="progress">
+          <div class="face top">
+            <div class="bar"></div>
+          </div>
+          <div class="face back">
+            <div class="bar"></div>
+          </div>
+          <div class="face bottom">
+            <div class="bar"></div>
+          </div>
+          <div class="face left"></div>
+          <div class="face right"></div>
+          <div class="face front">
+            <div class="bar"></div>
+          </div>
+        </div>
+      </div>
+    `;
+    shadow.appendChild(template.content.cloneNode(true));
   }
 
   connectedCallback() {
