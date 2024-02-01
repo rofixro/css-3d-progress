@@ -106,6 +106,15 @@ export default App;
 | back-shadow   | string | -0.5em -1.5em 4em \#ec008ccc | Box-shadow on back               |
 | bottom-shadow | string | 0em 0em 2em \#ec008ccc       | Box-shadow on bottom             |
 
+## Badge
+
+[![standard-readme compliant](https://img.shields.io/badge/readme%20style-standard-brightgreen.svg?style=flat-square)](https://github.com/RichardLitt/standard-readme)
+
+## Related Efforts
+
+* [Pure CSS Progress](https://codepen.io/rgg/pen/QbRyOq)
+* [3D Progress Bars [Day 04]](https://codepen.io/dhiisti/pen/JjGMjOQ)
+
 ## License
 
 [MIT](LICENSE)
