@@ -1,4 +1,4 @@
-export class Css3dProgress extends HTMLElement {
+class Css3dProgress extends HTMLElement {
   static get observedAttributes() {
     return ["percent", "is-animation", "stroke-color", "trail-color", "back-shadow", "bottom-shadow"];
   }
@@ -55,6 +55,8 @@ export class Css3dProgress extends HTMLElement {
   attributeChangedCallback(name) {
     if (name === "percent") {
       updatePercent(this);
+    } else {
+      updateStyle(this);
     }
   }
 }
