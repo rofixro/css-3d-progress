@@ -34,7 +34,7 @@ class Css3dProgress extends HTMLElement {
 
     const linkElem = document.createElement("link");
     linkElem.setAttribute("rel", "stylesheet");
-    linkElem.setAttribute("href", "css-3d-progress.css");
+    linkElem.setAttribute("href", "./css-3d-progress.css");
 
     [top, back, bottom, front].forEach((el) => {
       const bar = document.createElement("div");
