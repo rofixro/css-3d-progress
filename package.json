@@ -1,0 +1,14 @@
+{
+  "name": "css-3d-progress",
+  "version": "0.0.1",
+  "description": "A component that uses CSS to create a 3D progress bar",
+  "main": "css-3d-progress.js",
+  "keywords": [
+    "CSS",
+    "3D",
+    "progress",
+    "components"
+  ],
+  "author": "Rofix",
+  "license": "MIT"
+}
